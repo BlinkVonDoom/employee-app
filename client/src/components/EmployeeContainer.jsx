@@ -10,7 +10,7 @@ class EmployeeContainer extends Component {
 		super(props)
 		this.state = {
 			employees: [],
-			editingEmployeeID: null, 
+			editingEmployeeID: null,
 			editingEmployee: null
 		}
 
@@ -65,7 +65,7 @@ class EmployeeContainer extends Component {
 			return emp.id === id;
 		})
 		this.setState({
-			editingEmployeeID: id, 
+			editingEmployeeID: id,
 			editingEmployee: employee[0]
 		})
 	}
@@ -82,8 +82,9 @@ class EmployeeContainer extends Component {
 			}
 		})
 			.then(res => {
-				const employees = this.state.employees
-				employees[id - 1] = { id, first_name, last_name, employee_id, email_address, phone_number }
+				let employees = this.state.employees
+				employees = employees.filter(emp => {return emp.id !== this.state.editingEmployeeID })
+				employees.push(res.data)
 				this.setState({
 					employees,
 					editingEmployeeID: null
@@ -93,42 +94,42 @@ class EmployeeContainer extends Component {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<div>
 				<div className='App-header'></div>
-				<div className='employee-form'>
-				{this.state.editingEmployeeID === null ? 
-    <NewEmployeeForm onNewEmployee={this.addNewEmployee} /> 
-   :
-    <EditEmployeeForm className='employee-name'
-    key={this.state.editingEmployeeID}
-    emp={this.state.editingEmployee}
-    onRemoveEmployee={this.removeEmployee}
-    editEmployee={this.editEmployee} />
-}
+				<div>
+					{this.state.editingEmployeeID === null ?
+						<NewEmployeeForm onNewEmployee={this.addNewEmployee} />
+						:
+						<EditEmployeeForm className='employee-name'
+							key={this.state.editingEmployeeID}
+							emp={this.state.editingEmployee}
+							onRemoveEmployee={this.removeEmployee}
+							editEmployee={this.editEmployee} />
+					}
 				</div>
 				<table className='employee-table'>
-						<thead>
-							<tr>
-								<th>Fist Name</th>
-								<th>Last Name</th>
-								<th>Employee ID</th>
-								<th>Email</th>
-								<th>Phone Number</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.state.employees.map(emp => {
-								return (
-										<Employee className='employee-name'
-										key={emp.id}
-										emp={emp}
-										onRemoveEmployee={this.removeEmployee}
-										editingEmployee={this.editingEmployee} />
-								)
-							})}
-						</tbody>
+					<thead>
+						<tr className='table-headers'>
+							<th>Fist Name</th>
+							<th>Last Name</th>
+							<th>Employee ID</th>
+							<th>Email</th>
+							<th>Phone Number</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.employees.map(emp => {
+							return (
+								<Employee
+									key={emp.id}
+									emp={emp}
+									onRemoveEmployee={this.removeEmployee}
+									editingEmployee={this.editingEmployee} />
+							)
+						})}
+					</tbody>
 				</table>
 			</div>
 		)

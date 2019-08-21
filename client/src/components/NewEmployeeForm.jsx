@@ -21,28 +21,30 @@ const NewEmployeeForm = ({onNewEmployee = f => f}) => {
 	}
 
 	return (
-		<form onSubmit={submit}>
-			<input ref={input => firstName = input}
+		<form className='employee-form' onSubmit={submit}>
+			<h4>Add New Employee</h4>
+			<div>First Name<input ref={input => firstName = input}
 				type='text'
 				placeholder='first name'
-				required/>
-			<input ref={input => lastName = input}
+				required/></div>
+			<div>Last Name<input ref={input => lastName = input}
 				type='text'
 				placeholder='last name'
-				required/>
-			<input ref={input => employeeId = input}
+				required/></div>
+			<div>Employee Id<input ref={input => employeeId = input}
 				type='number'
 				placeholder='employee id'
 				required/>
-			<input ref={input => emailAddress = input}
+			</div>
+			<div>Email Address<input ref={input => emailAddress = input}
 				type='text'
 				placeholder='email address'
-				required/>
-			<input ref={input => phoneNumber = input}
+				required/></div>
+			<div>Phone Number<input ref={input => phoneNumber = input}
 				type='text'
 				placeholder='phone number'
-				required/>
-			<button>add new employee</button>
+				required/></div>
+			<button className='employee-form-btn btn'>add employee</button>
 		</form>
 	)
 }

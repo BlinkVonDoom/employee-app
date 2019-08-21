@@ -8,7 +8,7 @@ class EditEmployeeForm extends Component {
 			firstName: this.props.emp.first_name,
 			lastName: this.props.emp.last_name,
 			employeeId: this.props.emp.employee_id,
-			emailAddres: this.props.emp.email_address,
+			emailAddress: this.props.emp.email_address,
 			phoneNumber: this.props.emp.phone_number
 		}
 
@@ -23,51 +23,52 @@ class EditEmployeeForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault()
 		const { id, firstName, lastName,
-			employeeId, emailAddres, phoneNumber } = this.state
+			employeeId, emailAddress, phoneNumber } = this.state
 		
 		this.props.editEmployee(id, firstName, lastName,
-			employeeId, emailAddres, phoneNumber)
+			employeeId, emailAddress, phoneNumber)
 	}
 
 	render() {
 		return (
-			<form key={this.state.id} onSubmit={this.handleSubmit}>
-				<input
+			<form key={this.state.id} className='employee-form' onSubmit={this.handleSubmit}>
+				<h4>Editing {this.state.firstName} {this.state.lastName}</h4>
+				<div>First Name<input
 					name='firstName'
 					type='text'
 					placeholder='first name'
 					value={this.state.firstName}
 					onChange={this.handleChange}
-				/>
-				<input
+				/></div>
+				<div>Last Name<input
 					name='lastName'
 					type='text'
 					placeholder='last name'
 					value={this.state.lastName}
 					onChange={this.handleChange}
-					required />
-				<input
+					required /></div>
+				<div>Employee Id<input
 					name='employeeId'
 					type='number'
 					placeholder='employee id'
 					value={this.state.employeeId}
 					onChange={this.handleChange}
-					required />
-				<input
+					required /></div>
+				<div>Email Address<input
 					name='emailAddress'
 					type='text'
 					placeholder='email address'
-					value={this.state.emailAddres}
+					value={this.state.emailAddress}
 					onChange={this.handleChange}
-					required />
-				<input
+					required /></div>
+				<div>Phone Number<input
 					name='phoneNumber'
 					type='text'
 					placeholder='phone number'
 					value={this.state.phoneNumber}
 					onChange={this.handleChange}
-					required />
-				<button>edit employee</button>
+					required /></div>
+				<button className='employee-form-btn btn'>save employee</button>
 			</form>
 		)
 	}

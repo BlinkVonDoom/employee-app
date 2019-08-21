@@ -1,0 +1,26 @@
+button:hover {
+	cursor: pointer; 
+}
+.btn {
+	margin: 5px;
+	font-size: 100%;
+  padding: 0.5em 1em;
+  border: 1px solid #999;
+  border: transparent;
+  text-decoration: none;
+	border-radius: 2px;
+}
+.employee-form-btn {
+	background-color: $save-btn-color;
+	box-shadow: 1px 2px black;
+}
+
+.edit-employee-btn {
+	background-color:$edit-btn-color;
+	box-shadow: 1px 2px black;
+}
+
+.delete-employee-btn {
+	background-color: $delete-btn-color;
+	box-shadow: 1px 1px black;
+}

@@ -1,5 +1,6 @@
 @import './stylesheets/variables.scss';
 @import './stylesheets/EmployeeContainer.scss';
+@import './stylesheets/Buttons.scss';
 
 .App {
   text-align: center;
@@ -12,15 +13,11 @@
 
 .App-header {
   background-color: $primary-color;
-  min-height: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
+  min-height: 20px;
+  padding: 10px 0px 0px 15px;
+  display: left;
+  text-align: left;
+  justify-content: left;
+  font-size: 25px;
   color: $secondary-color;
 }
