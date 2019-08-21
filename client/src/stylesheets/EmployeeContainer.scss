@@ -16,24 +16,3 @@ tr:nth-child(odd) {background: $odd-rows}
 .employee-name {
 	height: 25px;
 }
-
-.employee-form {
-	margin: 35px;
-	padding: 0px 15px 15px 15px;
-	border-radius: 5px;
-	text-align: left;
-	position: relative;
-	width: 500px;
-	clear:both;
-	border: 2px solid black;
-	box-shadow: 2px 2px grey;
-}
-
-.employee-form input {
-	height: 25px;
-	border: 2px solid grey;
-	border-radius: 5px;
-	position: relative;
-	width: 100%;
-	clear: both;
-}

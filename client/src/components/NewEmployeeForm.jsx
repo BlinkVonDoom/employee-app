@@ -22,7 +22,7 @@ const NewEmployeeForm = ({onNewEmployee = f => f}) => {
 
 	return (
 		<form className='employee-form' onSubmit={submit}>
-			<h4>Add New Employee</h4>
+			<h4 className='employee-form-header'>Add New Employee</h4>
 			<div>First Name<input ref={input => firstName = input}
 				type='text'
 				placeholder='first name'

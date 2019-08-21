@@ -32,7 +32,7 @@ class EditEmployeeForm extends Component {
 	render() {
 		return (
 			<form key={this.state.id} className='employee-form' onSubmit={this.handleSubmit}>
-				<h4>Editing {this.state.firstName} {this.state.lastName}</h4>
+				<h4 className='employee-form-header'>Editing {this.state.firstName} {this.state.lastName}</h4>
 				<div>First Name<input
 					name='firstName'
 					type='text'
